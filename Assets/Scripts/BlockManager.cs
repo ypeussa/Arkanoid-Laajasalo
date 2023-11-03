@@ -8,6 +8,9 @@ public class BlockManager : MonoBehaviour {
     public int ny = 4;
     public float dy = 1f;
 
+    public float powerupProbability = 0.2f;
+    public GameObject[] spawnablePowerups;
+
     public GameObject normalBlockPrefab;
     public GameObject durableBlockPrefab;
     public GameObject indestructibleBlockPrefab;
@@ -59,7 +62,12 @@ public class BlockManager : MonoBehaviour {
                 float newY = c.y - j * dy;
                 go.transform.position = new Vector2(newX, newY);
                 go.transform.parent = blocksFolder;
-                go.GetComponent<Block>().bm = this;
+                var block = go.GetComponent<Block>();
+                block.bm = this;
+                if (Random.value < powerupProbability) {
+                    block.powerupPrefab = 
+                        spawnablePowerups[Random.Range(0, spawnablePowerups.Length)];
+                }
             }
         }
         CountBreakableBlocks();

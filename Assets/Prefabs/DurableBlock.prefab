@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6017412531930682873}
   - component: {fileID: 1824152388326117625}
   - component: {fileID: 8843685659629663919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DurableBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitpoints: 3
   destructible: 1
+  bm: {fileID: 0}

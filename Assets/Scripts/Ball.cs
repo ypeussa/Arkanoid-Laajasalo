@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour {
     bool goingUp;
     Vector2 originalPosition;
     Rigidbody2D rb;
+    //public AudioClip bumpSound;
+    public AudioSource audio;
 
     void FixedUpdate() {
         //if (rb.velocity.y > 0) {
@@ -39,6 +41,10 @@ public class Ball : MonoBehaviour {
         }
         // TODO STUDENTS: do same for situations where ball bounces
         // (almost) directly to the right!
+        //AudioSource.PlayClipAtPoint(bumpSound,
+        //    Camera.main.transform.position);
+        //audio.Play();
+        //audio.PlayOneShot(audio.clip);
     }
     public void ResetBall() {
         rb.position = originalPosition;

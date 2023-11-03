@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour {
     public int hitpoints;
     public bool destructible;
+    public GameObject powerupPrefab;
     public BlockManager bm;
 
     void Awake() {
@@ -20,6 +21,9 @@ public class Block : MonoBehaviour {
         hitpoints--;
         if (hitpoints <= 0) {
             Destroy(gameObject);
+            if (powerupPrefab != null) {
+                Instantiate(powerupPrefab, transform.position, Quaternion.identity);
+            }
             bm.BlockDestroyed();
         }        
     }

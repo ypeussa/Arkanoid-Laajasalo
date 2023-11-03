@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public int lives = 3;
     Ball ball;
     public TMP_Text statusText;
+    public List<PowerupType> paddlePowerups;
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -37,6 +38,18 @@ public class GameManager : MonoBehaviour {
     }
     public void LastBlockDestroyed() {
         GameOverWin();
+    }
+
+    public void ActivatePowerup(PowerupType powerup) {
+        print("Powerup activated: " + powerup);
+        if (powerup == PowerupType.ExtraLife) {
+            lives++;
+            // TODO: update lives text
+        } else if (paddlePowerups.Contains(powerup)) {
+            print("Let the paddle handle it");
+        } else {
+            Debug.LogError("Problematic powerup type, can't handle!");
+        }
     }
     public void BallLost() {
         print("Ball lost!");
