@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public int lives = 3;
     Ball ball;
     public TMP_Text statusText;
+    public Paddle paddle;
     public List<PowerupType> paddlePowerups;
 
     void Update() {
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour {
             lives++;
             // TODO: update lives text
         } else if (paddlePowerups.Contains(powerup)) {
-            print("Let the paddle handle it");
+            paddle.ActivatePowerup(powerup);
         } else {
             Debug.LogError("Problematic powerup type, can't handle!");
         }
