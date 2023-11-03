@@ -25,6 +25,7 @@ public class BlockManager : MonoBehaviour {
 
     public void BlockDestroyed() {
         breakableBlocksLeft--;
+        gm.AddScore(100);
         if (breakableBlocksLeft <= 0) {
             // print("All blocks destroyed");
             gm.LastBlockDestroyed();
