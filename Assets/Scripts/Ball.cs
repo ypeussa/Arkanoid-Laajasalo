@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour {
     public float speed;
     public float minAngle;
     bool goingUp;
-
+    Vector2 originalPosition;
     Rigidbody2D rb;
 
     void FixedUpdate() {
@@ -40,12 +40,14 @@ public class Ball : MonoBehaviour {
         // TODO STUDENTS: do same for situations where ball bounces
         // (almost) directly to the right!
     }
-    void ResetBall() {
+    public void ResetBall() {
+        rb.position = originalPosition;
         rb.velocity = launchDir.normalized * speed;
     }
 
-    void Start() {
+    void Awake() {
         rb = GetComponent<Rigidbody2D>();
         ResetBall();
+        originalPosition = transform.position;
     }
 }
