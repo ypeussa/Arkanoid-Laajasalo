@@ -47,7 +47,7 @@ public class Ball : MonoBehaviour {
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        ResetBall();
         originalPosition = transform.position;
+        ResetBall();
     }
 }
