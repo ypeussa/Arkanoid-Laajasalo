@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
     public Vector2 launchDir;
+    
     public float speed;
     public float minAngle;
     bool goingUp;
